@@ -1,0 +1,149 @@
+
+#articles {
+    padding: 2rem;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    padding-top: 250px;
+    margin-left: 290px;
+}
+
+#articles h1 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Alert Styles */
+.alert {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    transition: var(--tran-03);
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Articles Table Section */
+.articles-table {
+    background: var(--sidebar-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.articles-table h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+thead th {
+    background-color: var(--primary-color);
+    color: var(--primary-color-light);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+    transition: var(--tran-03);
+    
+}
+
+tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--primary-color-light);
+    color: var(--text-color);
+}
+
+tbody tr:hover {
+    background-color: var(--primary-color-light);
+}
+
+/* Button Styles */
+.view-btn, .delete-btn, .publish-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--tran-03);
+    margin-right: 0.5rem;
+}
+
+.view-btn {
+    background-color: var(--button-color);
+    color: #fff;
+    text-decoration: none;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.publish-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.view-btn:hover {
+    background-color: #1a5858;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.publish-btn:hover {
+    background-color: #218838;
+}
+
+/* Dark Mode Styles */
+body.dark .articles-table {
+    background: var(--sidebar-color);
+}
+
+body.dark thead th {
+    background-color: var(--primary-color);
+}
+
+body.dark tbody tr:hover {
+    background-color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #articles {
+        padding: 1rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .view-btn, .delete-btn, .publish-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    thead th, tbody td {
+        padding: 0.8rem;
+    }
+}

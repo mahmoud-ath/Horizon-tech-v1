@@ -1,0 +1,196 @@
+
+/* dashboard.css */
+#dashboard {
+    margin-left: 250px;
+    transition: var(--tran-05);
+    background-color: var(--body-color);
+    min-height: 100vh;
+    padding-top: 200px;
+    
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Recommended Articles Section */
+#recommended-articles {
+    flex: 1;
+    background: var(--sidebar-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #000000;
+    padding-right: 20px;
+}
+
+#recommended-articles h2 {
+    color: var(--text-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.recommended-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--primary-color-light);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #ddd;
+    height: 170px;
+}
+
+.recommended-article:hover {
+    transform: translateY(-5px);
+}
+
+.recommended-article h3 {
+    color: var(--text-color);
+    font-size: 18px;
+    margin: 0 80px 10px 0;
+}
+
+.recommended-article p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin: 5px 0;
+    
+
+}
+
+.recommended-article img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Magazine Issues Section */
+#magazine-issues {
+    flex: 1;
+    background: var(--sidebar-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#issues-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+#magazine-issues h2 {
+  color: var(--text-color);
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.magazine-issue {
+    position: relative;
+    background: var(--primary-color-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.magazine-issue img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.magazine-issue:hover {
+    transform: translateY(-5px);
+}
+
+.magazine-issue:hover img {
+    transform: scale(1.05);
+}
+
+.magazine-issue h3 {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.magazine-issue button {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.magazine-issue button:hover {
+    background: var(--text-color);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Adjustments */
+body.dark .recommended-article,
+body.dark .magazine-issue {
+    background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #recommended-articles,
+    #magazine-issues {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .recommended-article {
+        flex-direction: column;
+    }
+    
+    .article-image {
+        width: 100%;
+        order: -1;
+    }
+    
+    #issues-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar Close State */
+.sidebar.close ~ #dashboard {
+    margin-left: 78px;
+    width: calc(100% - 78px);
+}

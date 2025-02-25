@@ -1,0 +1,215 @@
+#manage-articles {
+    padding: 2rem;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    margin-left: 290px;
+    padding-top: 190px;
+}
+
+#manage-articles h2 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Filter Controls */
+.articles-controls {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.articles-controls label {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.articles-controls select {
+    padding: 8px 12px;
+    border: 1px solid var(--primary-color-light);
+    border-radius: 6px;
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    outline: none;
+    transition: var(--tran-03);
+}
+
+.articles-controls select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Table Styles */
+.articles-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--sidebar-color);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.articles-table thead {
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+}
+
+.articles-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.articles-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--primary-color-light);
+    color: var(--text-color);
+}
+
+.articles-table tbody tr:hover {
+    background-color: var(--primary-color-light);
+}
+
+/* Status Cell */
+.status {
+    text-transform: capitalize;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.view-btn,
+.switch-status-btn,
+.remove-btn,
+.assign-issue-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--tran-03);
+    text-decoration: none;
+}
+
+.view-btn {
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+}
+
+.switch-status-btn {
+    background-color: var(--button-color);
+    color: var(--sidebar-color);
+}
+
+.remove-btn {
+    background-color: #dc3545;
+    color: var(--sidebar-color);
+}
+
+.assign-issue-btn {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.view-btn:hover,
+.switch-status-btn:hover,
+.remove-btn:hover,
+.assign-issue-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    position: relative;
+    display: none;
+    top: 0px;
+    left: 200px;
+    width: 100%;
+    height: 100%;
+    z-index: 9000;
+}
+
+.modal-content {
+    background-color: var(--sidebar-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+#issueSelect {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--primary-color-light);
+    border-radius: 6px;
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+}
+
+#assignIssueBtn {
+    background-color: var(--button-color);
+    color: var(--sidebar-color);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--tran-03);
+}
+
+#assignIssueBtn:hover {
+    opacity: 0.9;
+}
+
+/* Dark Mode Styles */
+body.dark .articles-table {
+    background-color: var(--sidebar-color);
+}
+
+body.dark .articles-table thead {
+    background-color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .articles-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .articles-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button,
+    .actions a {
+        width: 100%;
+        text-align: center;
+    }
+}

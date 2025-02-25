@@ -1,0 +1,55 @@
+
+/* Add your existing CSS here */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    position: relative; /* Ensure the suggestions list is positioned relative to the search bar */
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 350px;
+    flex: 1;
+}
+
+.search-bar button {
+    border: none;
+    padding: 6px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.search-bar:hover button {
+    font-weight: bolder;
+    transform: scale(1.1);
+}
+
+.suggestions {
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    background: white;
+    z-index: 1000;
+    width: 100%; /* Match the width of the search bar */
+    top: 100%; /* Position the top of the list at the bottom of the search bar */
+    left: 0; /* Align the list with the left edge of the search bar */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    color: black; /* Make the text color black */
+}
+
+.suggestion-item:hover {
+    background: #f0f0f0;
+}

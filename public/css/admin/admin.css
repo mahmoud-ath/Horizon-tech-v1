@@ -1,0 +1,651 @@
+/* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #1a1a1a;
+  color: white;
+  position: fixed;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.sidebar-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.admin-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  object-fit: cover;
+
+}
+
+
+
+.sidebar-menu {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar-menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  transition: background-color 0.3s;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li a.active {
+  background-color: #333;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#logout-btn {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#theme-btn-header {
+  padding: 8px 16px;
+  background-color: #b08a22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#back-home-btn {
+  padding: 8px 16px;
+  background-color: #2b8130;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Dashboard stats styles */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+/* Manage Articles Section */
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.filters label {
+  font-weight: 500;
+}
+
+.filters select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.articles-table th,
+.articles-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.articles-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.articles-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.articles-table .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.articles-table .actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.articles-table .actions .activate-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.articles-table .actions .activate-btn:hover {
+  background-color: #218838;
+}
+
+.articles-table .actions .deactivate-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.articles-table .actions .deactivate-btn:hover {
+  background-color: #e0a800;
+}
+
+.articles-table .actions .remove-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.articles-table .actions .remove-btn:hover {
+  background-color: #c82333;
+}
+
+/* Hide buttons based on status */
+
+/* Create Article Form Styles */
+#create-article-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+#create-article-form .form-group {
+  margin-bottom: 15px;
+}
+
+#create-article-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+#create-article-form input,
+#create-article-form select,
+#create-article-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#create-article-btn {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#create-article-btn:hover {
+  background-color: #0056b3;
+}
+#create-article-form textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#create-article-form input[type="file"] {
+  padding: 5px;
+  font-size: 16px;
+}
+/* Manage Users Section */
+.users-controls {
+  margin-bottom: 20px;
+}
+
+.users-controls button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.users-controls button:hover {
+  background-color: #0056b3;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.users-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.users-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.users-table .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.users-table .actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.users-table .actions .edit-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.users-table .actions .edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.users-table .actions .block-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.users-table .actions .block-btn:hover {
+  background-color: #c82333;
+}
+
+.users-table .actions .delete-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.users-table .actions .delete-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+}
+
+.modal-content .form-group {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  margin-top: 10px;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.modal-content button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+.modal-content button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Manage Themes Section */
+.themes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.themes-table th,
+.themes-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.themes-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.themes-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.themes-table .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.themes-table .actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.themes-table .actions .change-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.themes-table .actions .change-btn:hover {
+  background-color: #0056b3;
+}
+
+.themes-table .actions .remove-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.themes-table .actions .remove-btn:hover {
+  background-color: #c82333;
+}
+/* Manage Numbers Section */
+.numbers-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.numbers-table th,
+.numbers-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.numbers-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.numbers-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.numbers-table .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.numbers-table .actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.numbers-table .actions .publish-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.numbers-table .actions .publish-btn:hover {
+  background-color: #218838;
+}
+
+.numbers-table .actions .private-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.numbers-table .actions .private-btn:hover {
+  background-color: #e0a800;
+}
+
+.numbers-table .actions .remove-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.numbers-table .actions .remove-btn:hover {
+  background-color: #c82333;
+}
+
+/* Add Number Button */
+#add-number-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#add-number-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Settings Section */
+#settings-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+#settings-form .form-group {
+  margin-bottom: 15px;
+}
+
+#settings-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+#settings-form input,
+#settings-form button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#settings-form button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#settings-form button:hover {
+  background-color: #0056b3;
+}
+/* Section visibility */
+section {
+  display: block;
+}
+
+section.active {
+  display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .header-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

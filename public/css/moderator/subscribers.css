@@ -1,0 +1,91 @@
+/* Manage Subscribers Section Styling */
+#subscribers {
+    padding: 30px;
+    background-color: var(--body-color);
+    border-radius: 10px;
+    margin: 20px;
+    margin-left: 290px;
+    margin-top: 250px;
+}
+
+#subscribers h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.subscribers-table table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.subscribers-table th,
+.subscribers-table td {
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    color: var(--text-color);
+    
+}
+
+.subscribers-table th {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
+}
+
+.subscribers-table td {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.subscribers-table .delete-btn {
+    padding: 6px 12px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribers-table .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Mobile responsiveness for the subscribers section */
+@media (max-width: 768px) {
+    #subscribers {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    #subscribers h1 {
+        font-size: 20px;
+    }
+
+    .subscribers-table table {
+        font-size: 14px;
+    }
+
+    .subscribers-table th, 
+    .subscribers-table td {
+        padding: 8px;
+    }
+
+    .subscribers-table .delete-btn {
+        padding: 4px 10px;
+    }
+}

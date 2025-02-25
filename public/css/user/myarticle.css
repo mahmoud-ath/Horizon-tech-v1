@@ -1,0 +1,218 @@
+
+#my-articles {
+  margin-left: 250px;
+  background-color: var(--body-color);
+  min-height: 100vh;
+  transition: var(--tran-05);
+  padding-top: 200px;
+  padding: 20px;
+  border-radius: 20px;
+  padding-top: 250px;
+}
+
+.sidebar.close ~ #my-articles {
+  margin-left: 78px;
+  width: calc(100% - 78px);
+}
+
+#my-articles h1 {
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  justify-content: center;
+  text-align: center;
+}
+
+.my-articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--sidebar-color);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: var(--tran-03);
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.my-articles-table th,
+.my-articles-table td {
+  padding: 15px;
+  text-align: left;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--primary-color-light);
+}
+
+.my-articles-table th {
+  background-color: var(--primary-color);
+  color: var(--sidebar-color);
+  font-weight: 500;
+  
+  
+
+}
+
+.my-articles-table tr:hover {
+  background-color: var(--primary-color-light);
+}
+
+/* Status badges */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Action buttons */
+.btn-view, .edit-article-btn {
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: var(--tran-03);
+  margin-right: 8px;
+}
+
+.btn-view {
+  background-color: var(--primary-color);
+  color: var(--sidebar-color);
+  text-decoration: none;
+}
+
+.edit-article-btn {
+  background-color: var(--button-color);
+  color: var(--sidebar-color);
+}
+
+.btn-view:hover, .edit-article-btn:hover {
+  opacity: 0.8;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: var(--tran-03);
+}
+
+.modal-content {
+  background-color: var(--sidebar-color);
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 6px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  transition: var(--tran-03);
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: var(--text-color);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--primary-color-light);
+  border-radius: 6px;
+  background-color: var(--sidebar-color);
+  color: var(--text-color);
+  transition: var(--tran-03);
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.btn-primary {
+  background-color: var(--button-color);
+  color: var(--sidebar-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+/* Dark mode support */
+body.dark .modal-content {
+  background-color: var(--sidebar-color);
+}
+
+body.dark .form-control {
+  background-color: var(--primary-color);
+  border-color: var(--text-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #my-articles {
+      margin-left: 0;
+      padding: 15px;
+  }
+
+  .my-articles-table {
+      font-size: 14px;
+  }
+
+  .modal-content {
+      width: 95%;
+      margin: 10% auto;
+  }
+
+  .btn-view, .edit-article-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
+}

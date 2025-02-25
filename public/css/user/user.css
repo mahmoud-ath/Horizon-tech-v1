@@ -1,0 +1,434 @@
+/* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #1a1a1a;
+  color: white;
+  position: fixed;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.sidebar-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.admin-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.sidebar-menu {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar-menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  transition: background-color 0.3s;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li a.active {
+  background-color: #333;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#logout-btn {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+/* Sidebar Styles */
+.sidebar-header {
+    margin-bottom: 20px;
+  }
+
+  .admin-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* dashboard section  */
+  .header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #admin-username {
+    font-weight: 900;
+  }
+
+  #dashboard {
+    padding: 20px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#recommended-articles, #magazine-issues {
+    flex: 1;
+}
+
+#recommended-articles {
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+}
+
+.recommended-article {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative; /* Allows positioning of image */
+}
+
+.recommended-article h3 {
+    margin-top: 0;
+}
+
+.recommended-article p {
+    margin: 5px 0;
+}
+
+.recommended-article img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+#magazine-issues {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.magazine-issue {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.magazine-issue img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.magazine-issue h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.magazine-issue p {
+    font-size: 14px;
+    margin: 0;
+}
+
+  /* Subscription Section */
+.subscription-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-table th, .subscription-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.subscription-table th {
+    background-color: #4c99af;
+    color: white;
+}
+
+.subscribe-btn {
+    padding: 8px 16px;
+    background-color: #4c9eaf;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribe-btn:hover {
+    background-color: #45a049;
+}
+
+.subscribe-btn.unsubscribe {
+    background-color: #dc3545;
+}
+
+.subscribe-btn.unsubscribe:hover {
+    background-color: #c82333;
+}
+/* Proposer un Article Form */
+#propose-article {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Mes Articles Table */
+.my-articles-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-articles-table th, .my-articles-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.my-articles-table th {
+    background-color: #4c9daf;
+    color: white;
+}
+
+/* Browsing History Section */
+#browsing-history {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters label {
+    margin-right: 10px;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-table th, .history-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.filters label {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.filters select {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+  /* Settings Section */
+  .settings-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .settings-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .settings-form-group {
+    margin-bottom: 20px;
+  }
+
+  .settings-label {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .settings-input {
+    padding: 8px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .settings-file-input {
+    margin-top: 5px;
+  }
+
+  .settings-submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px ;
+  }
+
+  .settings-submit-btn:hover {
+    background-color: #45a049;
+  }
+
+  /* Section visibility */
+  
+
+  section.active {
+    display: block;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+    }
+
+    .main-content {
+      margin-left: 200px;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .main-content {
+      margin-left: 0;
+    }
+
+    .header-info {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }

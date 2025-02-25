@@ -1,0 +1,38 @@
+.propos {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    margin-top: 200px;
+}
+
+.propos h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.propos p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .propos {
+        padding: 20px;
+    }
+
+    .propos h3 {
+        font-size: 24px;
+    }
+
+    .propos p {
+        font-size: 16px;
+    }
+}

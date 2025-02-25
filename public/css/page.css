@@ -1,0 +1,363 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+
+
+  background-color: rgb(255, 255, 255);
+}
+
+
+.main{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+
+}
+.main .img {
+  flex: 1;
+  background-repeat: no-repeat;
+  background-size:80% ;
+  background-position: center;
+  height: 100%;
+}
+.content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+
+}
+.content p {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .content button {
+    background-color: #0c2934;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .content button:hover {
+    background-color: rgb(3, 170, 189);
+
+  }
+  .mg {
+    padding: 20px;
+    text-align: center;
+}
+
+.mg h2 {
+    width: 100%;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+  .magazine-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    padding: 1rem;
+  }
+
+  .magazine-card {
+    border: 2px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image {
+    background-image: url('home.jpg');
+    background-size: cover;
+    height: 300px;
+  }
+
+  .card-content {
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .card-content p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .card-content button {
+    background-color: rgb(3, 170, 189);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
+  }
+
+  .card-content button:hover {
+    background-color:#0c2934;
+  }
+  /*!-- HEADER Section --*/
+  header {
+    background-color: #0c2934;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: #333;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+.logo {
+    display: flex;
+    align-items: center; /* Aligne les éléments verticalement */
+    gap: 0px;
+}
+
+.logo h1 {
+    margin-left: 10px;
+}
+.logo img {
+    margin: 0;
+    padding: 0;
+    width: 80px;
+   height: 50px;
+   transition: transform 0.3s;
+}
+
+/* Add your existing CSS here */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    position: relative; /* Ensure the suggestions list is positioned relative to the search bar */
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 350px;
+    flex: 1;
+}
+
+.search-bar button {
+    border: none;
+    padding: 6px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.search-bar:hover button {
+    font-weight: bolder;
+    transform: scale(1.1);
+}
+
+.suggestions {
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    background: white;
+    z-index: 1000;
+    width: 100%; /* Match the width of the search bar */
+    top: 100%; /* Position the top of the list at the bottom of the search bar */
+    left: 0; /* Align the list with the left edge of the search bar */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    color: black; /* Make the text color black */
+}
+
+.suggestion-item:hover {
+    background: #f0f0f0;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 18px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.more {
+    color: #ffffff;
+}
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    color: #0c2934;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    background-color: #ffffff;
+}
+ /*HEADER FIN*/
+
+  /*FOOTER BEGIN*/
+  footer {
+            background-color: #0c2934;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 7px;
+
+        }
+
+       .footer-section {
+           flex: 1 1 200px;
+           margin: 10px;
+        }
+        .footer-section h2 {
+           font-size: 24px;
+           margin-bottom: 10px;
+        }
+        .footer-section p {
+           line-height: 1.6;
+           font-size: 14px;
+           color: #ccc;
+        }
+
+        .footer-section h4 {
+           font-size: 18px;
+           margin-bottom: 10px;
+           text-transform: uppercase;
+        }
+
+       .footer-section ul {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+        }
+
+       .footer-section ul li {
+           margin: 5px 0;
+           padding: 0;
+        }
+
+       .footer-section ul li a {
+           text-decoration: none;
+           color: #bbb;
+           transition: color 0.3s;
+        }
+
+       .footer-section ul li a:hover {
+           color: #fff;
+        }
+        .footer-section form {
+           display: flex;
+           gap: 10px;
+           margin-top: 10px;
+        }
+
+        .footer-section input {
+           padding: 8px;
+           border: 1px solid #444;
+           border-radius: 4px;
+           flex: 1;
+           background-color: #222;
+           color: #fff;
+        }
+
+       .footer-section button {
+           padding: 8px 12px;
+           background-color: rgb(255, 255, 255);
+           color: #222;
+           border: none;
+           border-radius: 4px;
+           cursor: pointer;
+           transition: background-color 0.3s;
+        }
+
+       .footer-section button:hover {
+           background-color: #222;
+           color: white;
+        }
+
+       .social-icons a {
+           display: inline-block;
+           margin-right: 10px;
+        }
+
+       .social-icons img {
+           width: 24px;
+           height: 24px;
+           filter: invert(100%);
+           transition: transform 0.3s;
+        }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+
+       .footer-bottom {
+           padding: 10px 0;
+           font-size: 14px;
+        }
+        .footer-bottom p {
+           margin: 5px 0;
+           text-align: center;
+        }
+
+        .footer-bottom a {
+           text-decoration: none;
+           color: #bbb;
+           margin: 0 5px;
+        }
+
+        .footer-bottom a:hover {
+           color: #fff;
+        }
+
+
+ /*FOOTER FIN*/

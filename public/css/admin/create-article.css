@@ -1,0 +1,125 @@
+#publication {
+    padding: 2rem;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+
+    margin-left: 290px;
+    padding-top: 190px;
+}
+
+#publication h2 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form Styles */
+#create-article-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--sidebar-color);
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--primary-color-light);
+    border-radius: 6px;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: var(--tran-03);
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px dashed var(--primary-color-light);
+    border-radius: 6px;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Submit Button */
+#create-article-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--button-color);
+    color: var(--sidebar-color);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--tran-03);
+}
+
+#create-article-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Dark Mode Adjustments */
+body.dark .form-group input[type="text"],
+body.dark .form-group select,
+body.dark .form-group textarea {
+    background-color: var(--sidebar-color);
+}
+
+body.dark .form-group input[type="file"] {
+    background-color: var(--sidebar-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #publication {
+        padding: 1rem;
+    }
+
+    #create-article-form {
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        padding: 0.6rem;
+    }
+}
