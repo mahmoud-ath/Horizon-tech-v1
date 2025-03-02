@@ -25,6 +25,7 @@ class UserProposalController extends Controller
             'theme' => 'required|exists:themes,id',
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:2048',
             'content' => 'required|string',
+            'status' => 'pending', 
         ]);
 
         try {

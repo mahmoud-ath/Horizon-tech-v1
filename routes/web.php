@@ -184,7 +184,6 @@ Route::get('/user/dashboarduser', [DashboardUserController::class, 'index'])->na
 // User Subscription Routes
 Route::get('/user/subscription', [UserSubscriptionController::class, 'index'])->name('user.subscription');
 Route::post('/admin/toggle-subscription', [UserSubscriptionController::class, 'toggleSubscription'])->name('user.toggleSubscription');
-Route::get('/user/my-articles', [UserArticleController::class, 'myArticles'])->name('user.myarticles');
 /*Route::get('/user/browsing-history', [UserController::class, 'browsingHistory'])->name('user.browsing-history');*/
 // User History Route
 Route::get('/user/browsing-history', [UserHistoryController::class, 'index'])->name('user.browsing-history');
@@ -200,6 +199,9 @@ Route::post('/submit-article', [UserProposalController::class, 'store'])->name('
 Route::get('/my-articles', [UserArticleController::class, 'myArticles'])->name('user.myarticles');
 Route::get('/article/{id}', [UserArticleController::class, 'show'])->name('userarticle.show');
 Route::put('/articles/{id}', [UserArticleController::class, 'update'])->name('articles.update');/*
+
+
+
 //TEST A VERIFIE
 
 Route::get('/dashboard', function () {
