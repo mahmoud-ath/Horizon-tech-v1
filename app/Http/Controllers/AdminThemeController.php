@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminThemeController extends Controller
 {
-    public function index()
+    public function indextheme()
     {
         $themes = Theme::withCount('articles')->with('user')->get();
         $moderators = User::whereIn('usertype', ['moderator', 'admin'])->get();
         return view('admin.manage-responsible-themes', compact('themes', 'moderators'));
     }
 
-    public function store(Request $request)
+    public function storetheme(Request $request)
 {
     $validatedData = $request->validate([
         'name' => 'required|string|max:255',
@@ -65,7 +65,7 @@ if ($request->hasFile('imagepath')) {
         return redirect()->back()->with('success', 'Responsible user updated successfully');
     }
 
-    public function toggleStatus($id)
+    public function toggleStatustheme($id)
     {
         $theme = Theme::findOrFail($id);
         $theme->status = $theme->status === 'Public' ? 'Private' : 'Public';
@@ -74,7 +74,7 @@ if ($request->hasFile('imagepath')) {
         return redirect()->back()->with('success', 'Theme status toggled successfully');
     }
 
-    public function destroy($id)
+    public function destroytheme($id)
     {
         $theme = Theme::findOrFail($id);
         $theme->delete();

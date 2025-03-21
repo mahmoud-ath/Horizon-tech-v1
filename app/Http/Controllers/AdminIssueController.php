@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminIssueController extends Controller
 {
-    public function index()
+    public function indexnumber()
     {
         $issues = Issues::all();
         return view('admin.manage-numbers', compact('issues'));
     }
 
-    public function store(Request $request)
+    public function storenumber(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
@@ -49,7 +49,7 @@ class AdminIssueController extends Controller
         return redirect()->route('admin.issues.index');
     }
 
-    public function updateStatus(Request $request, $id)
+    public function updateStatusnumber(Request $request, $id)
     {
         $issue = Issues::findOrFail($id);
         $issue->status = $request->status;
@@ -58,7 +58,7 @@ class AdminIssueController extends Controller
         return redirect()->route('admin.issues.index');
     }
 
-    public function destroy($id)
+    public function destroynumber($id)
     {
         $issue = Issues::findOrFail($id);
         $issue->delete();

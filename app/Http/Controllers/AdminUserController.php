@@ -8,7 +8,7 @@ use App\Models\User;
 class AdminUserController extends Controller
 {
    // Function to get all users
-   public function index()
+   public function indexuser()
    {
        $users = User::all();
        
@@ -17,7 +17,7 @@ class AdminUserController extends Controller
 
     
 
-    public function update(Request $request, $id)
+    public function updateuser(Request $request, $id)
     {
         $user = User::find($id);
         $user->update($request->all());
@@ -45,7 +45,7 @@ class AdminUserController extends Controller
     }
 
     // Function to delete a user
-    public function destroy($id)
+    public function destroyuser($id)
     {
         $user = User::findOrFail($id);
         $user->delete();

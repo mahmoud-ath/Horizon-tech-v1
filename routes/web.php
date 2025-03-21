@@ -9,18 +9,7 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\ModeratorDashboardController;
-use App\Http\Controllers\ModeratorArticlesController;
-use App\Http\Controllers\ModeratorSubscribersController;
-use App\Http\Controllers\ModeratorSettingsController;
-use App\Http\Controllers\ModeratorChatController;
-use App\Http\Controllers\UserProposalController;
-use App\Http\Controllers\UserSettingsController;
-use App\Http\Controllers\UserArticleController;
-use App\Http\Controllers\UserSubscriptionController;
-use App\Http\Controllers\DashboardUserController;
-use App\Http\Controllers\UserHistoryController;
-use App\Http\Controllers\ModeratorProposalController;
+
 use App\Http\Controllers\AdminThemeController;
 use App\Http\Controllers\AdminIssueController;
 use App\Http\Controllers\AdminSettingsController;
@@ -29,7 +18,9 @@ use App\Http\Controllers\AdminCreateArticleController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
 
-
+use App\Http\Controllers\UserManagerController;
+use App\Http\Controllers\ModeratorController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,31 +93,31 @@ Route::post('articles/{articleId}/ratings', [ArticleController::class, 'storeRat
 
 // Moderator Routes
 Route::middleware(['auth', 'moderator'])->group(function () {
-    Route::get('/moderator/dashboard', [ModeratorDashboardController::class, 'dashboard'])->name('moderatorhome');
+    Route::get('/moderator/dashboard', [ModeratorController::class, 'dashboard'])->name('moderatorhome');
 
     // Routes for managing articles
-    Route::get('/moderator/articles', [ModeratorArticlesController::class, 'index'])->name('moderator.articles.index');
-    Route::get('/moderator/articles/{id}', [ModeratorArticlesController::class, 'show'])->name('moderator.articles.show');
-    Route::delete('/moderator/articles/{id}', [ModeratorArticlesController::class, 'destroy'])->name('moderator.articles.destroy');
-    Route::post('/moderator/articles/{id}/publish', [ModeratorArticlesController::class, 'publish'])->name('moderator.articles.publish');
+    Route::get('/moderator/articles', [ModeratorController::class, 'index'])->name('moderator.articles.index');
+    Route::get('/moderator/articles/{id}', [ModeratorController::class, 'show'])->name('moderator.articles.show');
+    Route::delete('/moderator/articles/{id}', [ModeratorController::class, 'destroy'])->name('moderator.articles.destroy');
+    Route::post('/moderator/articles/{id}/publish', [ModeratorController::class, 'publish'])->name('moderator.articles.publish');
 
     // Routes for managing subscribers
-    Route::get('/moderator/subscribers', [ModeratorSubscribersController::class, 'index'])->name('moderator.subscribers.index');
-    Route::get('/moderator/subscribers/{id}', [ModeratorSubscribersController::class, 'show'])->name('moderator.subscribers.show');
-    Route::delete('/moderator/subscribers/{id}', [ModeratorSubscribersController::class, 'destroy'])->name('moderator.subscribers.destroy');
+    Route::get('/moderator/subscribers', [ModeratorController::class, 'indexsub'])->name('moderator.subscribers.index');
+    Route::get('/moderator/subscribers/{id}', [ModeratorController::class, 'showsub'])->name('moderator.subscribers.show');
+    Route::delete('/moderator/subscribers/{id}', [ModeratorController::class, 'destroysub'])->name('moderator.subscribers.destroy');
 
     // Routes for managing conversations
-    Route::get('/moderator/conversations', [ModeratorChatController::class, 'index'])->name('moderator.conversations.index');
-    Route::delete('/moderator/conversations/{id}', [ModeratorChatController::class, 'destroy'])->name('moderator.conversations.destroy');
+    Route::get('/moderator/conversations', [ModeratorController::class, 'indexchat'])->name('moderator.conversations.index');
+    Route::delete('/moderator/conversations/{id}', [ModeratorController::class, 'destroychat'])->name('moderator.conversations.destroy');
 
     // Routes for managing proposals
-    Route::get('/moderator/proposals', [ModeratorProposalController::class, 'index'])->name('moderator.proposals.index');
-    Route::delete('/moderator/proposals/{id}', [ModeratorProposalController::class, 'destroy'])->name('moderator.proposals.destroy');
-    Route::post('/moderator/proposals/{id}/propose-edit', [ModeratorProposalController::class, 'proposeEdit'])->name('moderator.proposals.proposeEdit');
+    Route::get('/moderator/proposals', [ModeratorController::class, 'indexpropose'])->name('moderator.proposals.index');
+    Route::delete('/moderator/proposals/{id}', [ModeratorController::class, 'destroypropose'])->name('moderator.proposals.destroy');
+    Route::post('/moderator/proposals/{id}/propose-edit', [ModeratorController::class, 'proposeEdit'])->name('moderator.proposals.proposeEdit');
 
     // Profile Update Route
-    Route::put('/moderator/profile/update', [ModeratorSettingsController::class, 'update'])->name('moderator.profile.update');
-    Route::get('/moderator/settings', [ModeratorSettingsController::class, 'settings'])->name('moderator.settings');
+    Route::put('/moderator/profile/update', [ModeratorController::class, 'update'])->name('moderator.profile.update');
+    Route::get('/moderator/settings', [ModeratorController::class, 'settings'])->name('moderator.settings');
 });
 
 
@@ -134,33 +125,34 @@ Route::middleware(['auth', 'moderator'])->group(function () {
 //admin
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::prefix('admin')->group(function () {
-        Route::get('adminhome', [AdminDashboardController::class, 'index'])->name('admin.adminhome');
+        Route::get('adminhome', [AdminController::class, 'dashboard'])->name('admin.adminhome');
 
-        Route::get('articles', [AdminArticleController::class, 'index'])->name('admin.articles.index');
-        Route::post('/articles/switch-status/{id}', [AdminArticleController::class, 'switchStatus'])->name('admin.articles.switchStatus');
-        Route::post('/articles/remove/{id}', [AdminArticleController::class, 'remove'])->name('articles.remove');
-        Route::get('/articles/{id}', [AdminArticleController::class, 'show'])->name('articles.show');
-        Route::post('/admin/articles/assign-issue', [AdminArticleController::class, 'assignIssue'])->name('articles.assignIssue');
+        Route::get('articles', [AdminController::class, 'index'])->name('admin.articles.index');
+        Route::post('/articles/switch-status/{id}', [AdminController::class, 'switchStatus'])->name('admin.articles.switchStatus');
+        Route::post('/articles/remove/{id}', [AdminController::class, 'remove'])->name('articles.remove');
+        Route::get('/articles/{id}', [AdminController::class, 'show'])->name('articles.show');
+        Route::post('/admin/articles/assign-issue', [AdminController::class, 'assignIssue'])->name('articles.assignIssue');
 
-        Route::get('/admin/articles/create', [AdminCreateArticleController::class, 'create'])->name('admin.articles.create');
-        Route::post('/admin/articles/store', [AdminCreateArticleController::class, 'store'])->name('admin.articles.store');
-        Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users.index');
-        Route::put('/users/{id}', [AdminUserController::class, 'update'])->name('admin.users.update');
-        Route::put('/users/{id}/switch-role', [AdminUserController::class, 'switchRole'])->name('admin.users.switchRole');
-        Route::delete('/users/{id}', [AdminUserController::class, 'destroy'])->name('admin.users.destroy');
+        Route::get('/admin/articles/create', [AdminController::class, 'create'])->name('admin.articles.create');
+        Route::post('/admin/articles/store', [AdminController::class, 'store'])->name('admin.articles.store');
+        
+        Route::get('/users', [AdminController::class, 'indexuser'])->name('admin.users.index');
+        Route::put('/users/{id}', [AdminController::class, 'updateuser'])->name('admin.users.update');
+        Route::put('/users/{id}/switch-role', [AdminController::class, 'switchRole'])->name('admin.users.switchRole');
+        Route::delete('/users/{id}', [AdminController::class, 'destroyuser'])->name('admin.users.destroy');
 
         // themes route
-        Route::get('themes', [AdminThemeController::class, 'index'])->name('admin.themes.index');
-        Route::post('themes', [AdminThemeController::class, 'store'])->name('admin.themes.store');
-        Route::post('themes/update-responsible/{id}', [AdminThemeController::class, 'updateResponsible'])->name('updateResponsible');
-        Route::post('themes/toggle-status/{id}', [AdminThemeController::class, 'toggleStatus'])->name('toggleStatus');
-        Route::delete('themes/{id}', [AdminThemeController::class, 'destroy'])->name('admin.themes.destroy');
+        Route::get('themes', [AdminController::class, 'indextheme'])->name('admin.themes.index');
+        Route::post('themes', [AdminController::class, 'storetheme'])->name('admin.themes.store');
+        Route::post('themes/update-responsible/{id}', [AdminController::class, 'updateResponsible'])->name('updateResponsible');
+        Route::post('themes/toggle-status/{id}', [AdminController::class, 'toggleStatustheme'])->name('toggleStatus');
+        Route::delete('themes/{id}', [AdminController::class, 'destroytheme'])->name('admin.themes.destroy');
 
         // numbers routes
-        Route::get('issues', [AdminIssueController::class, 'index'])->name('admin.issues.index');
-        Route::post('issues', [AdminIssueController::class, 'store'])->name('admin.issues.store');
-        Route::patch('issues/{issue}/updateStatus', [AdminIssueController::class, 'updateStatus'])->name('admin.issues.updateStatus');
-        Route::delete('issues/{issue}', [AdminIssueController::class, 'destroy'])->name('admin.issues.destroy');
+        Route::get('issues', [AdminController::class, 'indexnumber'])->name('admin.issues.index');
+        Route::post('issues', [AdminController::class, 'storenumber'])->name('admin.issues.store');
+        Route::patch('issues/{issue}/updateStatus', [AdminController::class, 'updateStatusnumber'])->name('admin.issues.updateStatus');
+        Route::delete('issues/{issue}', [AdminController::class, 'destroynumber'])->name('admin.issues.destroy');
         // messages
         Route::get('/messages', [ContactController::class, 'showMessages'])->name('admin.messages');
 
@@ -180,47 +172,26 @@ Route::middleware('auth')->group(function () {
 
 
 // User Dashboard Routes
-Route::get('/user/dashboarduser', [DashboardUserController::class, 'index'])->name('user.dashboarduser');
+Route::get('/user/dashboarduser', [ UserManagerController::class, 'index'])->name('user.dashboarduser');
 // User Subscription Routes
-Route::get('/user/subscription', [UserSubscriptionController::class, 'index'])->name('user.subscription');
-Route::post('/admin/toggle-subscription', [UserSubscriptionController::class, 'toggleSubscription'])->name('user.toggleSubscription');
+Route::get('/user/subscription', [UserManagerController::class, 'indexsub'])->name('user.subscription');
+Route::post('/admin/toggle-subscription', [UserManagerController::class, 'toggleSubscription'])->name('user.toggleSubscription');
 /*Route::get('/user/browsing-history', [UserController::class, 'browsingHistory'])->name('user.browsing-history');*/
 // User History Route
-Route::get('/user/browsing-history', [UserHistoryController::class, 'index'])->name('user.browsing-history');
+Route::get('/user/browsing-history', [UserManagerController::class, 'indexhistory'])->name('user.browsing-history');
 // User Settings Routes
-Route::put('/settings/update', [UserSettingsController::class, 'update'])->name('user.settings.update');
-Route::get('/user/settings', [UserController::class, 'settings'])->name('user.settings');
+Route::put('/settings/update', [UserManagerController::class, 'updatedata'])->name('user.settings.update');
+Route::get('/user/settings', [UserManagerController::class, 'settings'])->name('user.settings');
 
 // User Article Proposal Routes
-Route::get('/user/proposearticle', [UserProposalController::class, 'create'])->name('user.proposearticle');
-Route::post('/submit-article', [UserProposalController::class, 'store'])->name('submit-article');
+Route::get('/user/proposearticle', [UserManagerController::class, 'create'])->name('user.proposearticle');
+Route::post('/submit-article', [UserManagerController::class, 'store'])->name('submit-article');
 
 // User Articles Routes
-Route::get('/my-articles', [UserArticleController::class, 'myArticles'])->name('user.myarticles');
-Route::get('/article/{id}', [UserArticleController::class, 'show'])->name('userarticle.show');
-Route::put('/articles/{id}', [UserArticleController::class, 'update'])->name('articles.update');/*
+Route::get('/my-articles', [UserManagerController::class, 'myArticles'])->name('user.myarticles');
+Route::get('/article/{id}', [UserManagerController::class, 'show'])->name('userarticle.show');
+Route::put('/articles/{id}', [UserManagerController::class, 'update'])->name('articles.update');
 
 
 
-//TEST A VERIFIE
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
-Route::get('/user', [userController::class, 'index'])->name('user.dashboard');
-Route::post('/toggle-subscription', [userController::class, 'toggleSubscription'])->name('user.toggleSubscription');
-
-
-
-
-
-// Other routes...
-
-Route::get('/user/dashboard', [UserController::class, 'index'])->middleware('auth');
-Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('auth');
-Route::post('/toggle-subscription', [UserController::class, 'toggleSubscription']);
-
-*/
 

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdminArticleController extends Controller
 {
-    public function index()
+    public function article()
     {
         try {
             $articles = Article::with('theme')->get();

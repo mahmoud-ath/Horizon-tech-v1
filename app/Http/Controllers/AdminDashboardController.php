@@ -10,7 +10,7 @@ use App\Models\Issues;
 
 class AdminDashboardController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
         $totalSubscribers = User::count();
         
