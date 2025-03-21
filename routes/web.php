@@ -6,18 +6,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
-use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\IssueController;
-use App\Http\Controllers\AdminUserController;
 
-use App\Http\Controllers\AdminThemeController;
-use App\Http\Controllers\AdminIssueController;
-use App\Http\Controllers\AdminSettingsController;
-use App\Http\Controllers\AdminArticleController;
-use App\Http\Controllers\AdminCreateArticleController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
-
+//dashboards
 use App\Http\Controllers\UserManagerController;
 use App\Http\Controllers\ModeratorController;
 use App\Http\Controllers\AdminController;
@@ -157,8 +150,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/messages', [ContactController::class, 'showMessages'])->name('admin.messages');
 
         // Settings routes
-        Route::get('/settings', [AdminSettingsController::class, 'settings'])->name('admin.settings');
-        Route::put('/settings/update', [AdminSettingsController::class, 'update'])->name('admin.updateSettings');
+        Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
+        Route::put('/settings/update', [AdminController::class, 'updateprofile'])->name('admin.updateSettings');
     });
 });
 

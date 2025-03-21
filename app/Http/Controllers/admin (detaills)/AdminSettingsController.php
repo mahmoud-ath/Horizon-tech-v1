@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Log;
             // Your logic to retrieve and display user settings
             return view('admin.settings'); // Ensure you have a `settings.blade.php` view file
         }
-        public function update(Request $request)
+        public function updateprofile(Request $request)
 {
     try {
         // Vérifier si l'utilisateur est authentifié
